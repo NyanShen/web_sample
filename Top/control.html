@@ -1,0 +1,26 @@
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <form id="taskForm">
+        <label id="label_zip">
+            name:
+            <input id="txt_zip" type="text" name="txt_zip" maxlength="6">
+            <small>请输入6位数字</small>
+        </label>
+        <input id="btn_validate" type="button" value="设置默认值" onclick="setDefault()">
+    </form>
+    <script>
+        function setDefault() {
+            var labelZip = document.getElementById('label_zip');
+            var labelbox = labelZip.control;
+            labelbox.value = "123465";
+        }
+    </script>
+</body>
+
+</html>

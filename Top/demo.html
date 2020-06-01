@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form id="taskForm">
+        <label for="txt_name">name:</label>
+        <input id="txt_name" type="text" name="txt_name">
+        <input id="btn_validate" type="button" value="validate" onclick="validateName()">
+    </form>
+    <script>
+        function validateName() {
+            var txtName = document.getElementById('txt_name');
+            var button = document.getElementById('btn_validate');
+            var form = document.getElementById('taskForm');
+            if (txtName.value.trim() == '') {
+                var label = document.createElement("label");
+                label.setAttribute("for", "txt_name");
+                form.insertBefore(label, button);
+                txtName.labels[1].innerHTML="please input txt_name";
+                txtName.labels[1].setAttribute('style', 'color:red')
+            }
+        }
+    </script>
+</body>
+</html>

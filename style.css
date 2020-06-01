@@ -1,0 +1,34 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .body{
+    height: 100%;
+    position: relative;
+  }
+  .header{
+    height: 80px;
+    background-color: #515A6E;
+  }
+  .section{
+    background-color: #afc7de;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+    right: 0;
+  }
+  .left{
+    background-color: #888888;
+    float: left;
+    width: 100px;
+    height: 100%;
+  }
+  .right{
+    background-color: #F5F7F9;
+    height: 100%;
+    margin-left: 100px;
+  }
