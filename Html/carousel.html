@@ -8,11 +8,47 @@
     <link rel="stylesheet" href="../css/reset.css">
 </head>
 <style>
+    .box-content {
+        width: 600px;
+        margin: 40px auto;
+    }
+
+    .carousel-show {
+        margin-bottom: 20px;
+    }
+
+    .carousel-show .item-list,
+    .carousel-show .item-list .banner-position {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .carousel-show .item-list li {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 600px;
+        height: 400px;
+    }
+
+    .carousel-show .item-list img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 400px;
+        margin: auto;
+
+    }
+
     .carousel-wrap {
         position: relative;
         width: 600px;
         height: 80px;
-        margin: 40px auto;
     }
 
     .carousel-wrap .current {
@@ -111,10 +147,18 @@
         right: 0;
     }
 
+    .carousel-container .arrow.next:hover {
+        background-position: -23px -34px;
+    }
+
     .carousel-container .arrow.previous {
         background-position: 0 0;
         top: 20px;
         left: 0;
+    }
+
+    .carousel-container .arrow.previous:hover {
+        background-position: 0 -34px;
     }
 
     .carousel-container .current {
@@ -127,69 +171,134 @@
 </style>
 
 <body>
-    <div class="carousel-wrap">
-        <div class="current" id="carouselCurrent"></div>
-        <div class="carousel-container">
-            <ul class="carousel-list" id="carouselList">
+    <div class="box-content">
+        <div class="carousel-show">
+            <ul class="item-list" id="carouselShowList">
                 <li>
-                    <p><a href="javascript:;">样板间1</a></p>
-                    <em></em>
-                    <img src="../images/112x80_1.png" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_1.jpg" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">全景看房2</a></p>
-                    <em></em>
-                    <img src="../images/112x80_2.jpg" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_2.png" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">活动现场3</a></p>
-                    <em></em>
-                    <img src="../images/112x80_3.png" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_3.jpg" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">证件照4</a></p>
-                    <em></em>
-                    <img src="../images/112x80_4.jpg" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_4.png" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">户型5</a></p>
-                    <em></em>
-                    <img src="../images/112x80_5.jpg" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_5.jpg" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">交通图6</a></p>
-                    <em></em>
-                    <img src="../images/112x80_6.jpg" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_6.jpg" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">实景图7</a></p>
-                    <em></em>
-                    <img src="../images/112x80_7.jpg" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_7.jpg" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">视频8</a></p>
-                    <em></em>
-                    <img src="../images/112x80_8.png" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_8.jpg" alt="">
+                        </a>
+                    </div>
                 </li>
                 <li>
-                    <p><a href="javascript:;">证件9</a></p>
-                    <em></em>
-                    <img src="../images/112x80_9.jpg" alt="">
-                </li>
-                <li>
-                    <p><a href="javascript:;">证件10</a></p>
-                    <em></em>
-                    <img src="../images/112x80_9.jpg" alt="">
+                    <div class="banner-position">
+                        <a href="javascript:;">
+                            <img src="../images/1400x933_9.png" alt="">
+                        </a>
+                    </div>
                 </li>
             </ul>
-            <a href="javascript:;" class="arrow previous" id="arrowPrev"></a>
-            <a href="javascript:;" class="arrow next" id="arrowNext"></a>
+        </div>
+        <div class="carousel-wrap">
+            <div class="current" id="carouselCurrent"></div>
+            <div class="carousel-container">
+                <ul class="carousel-list" id="carouselList">
+                    <li>
+                        <p><a href="javascript:;">图1</a></p>
+                        <em></em>
+                        <img src="../images/112x80_1.jpg" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图2</a></p>
+                        <em></em>
+                        <img src="../images/112x80_2.png" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图3</a></p>
+                        <em></em>
+                        <img src="../images/112x80_3.jpg" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图4</a></p>
+                        <em></em>
+                        <img src="../images/112x80_4.png" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图5</a></p>
+                        <em></em>
+                        <img src="../images/112x80_5.jpg" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图6</a></p>
+                        <em></em>
+                        <img src="../images/112x80_6.jpg" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图7</a></p>
+                        <em></em>
+                        <img src="../images/112x80_7.jpg" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图8</a></p>
+                        <em></em>
+                        <img src="../images/112x80_8.jpg" alt="">
+                    </li>
+                    <li>
+                        <p><a href="javascript:;">图9</a></p>
+                        <em></em>
+                        <img src="../images/112x80_9.png" alt="">
+                    </li>
+                </ul>
+                <a href="javascript:;" class="arrow previous" id="arrowPrev"></a>
+                <a href="javascript:;" class="arrow next" id="arrowNext"></a>
+            </div>
         </div>
     </div>
 </body>
 <script src="../JavaScript/jquery.min.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
+        let index = 0;
         let arrowPrev = $('#arrowPrev');
         let arrowNext = $('#arrowNext');
         let carouselList = $('#carouselList');
@@ -201,7 +310,11 @@
         let pointCurWidth = stepWidth - (listLength - showLength) * stepWidth;
         let pointPicWidth = (showLength - listLength) * stepWidth;
 
-        carouselList.css('width', (listLength + 1) * 112 + 'px')
+        carouselList.css('width', (listLength + 1) * 112 + 'px');
+
+        $('#carouselShowList li').eq(index).css({
+            display: 'block'
+        })
 
         arrowPrev.click(function () {
             move(stepWidth);
