@@ -32,6 +32,7 @@
         left: 0;
         width: 600px;
         height: 400px;
+        background-color: #ddd;
     }
 
     .carousel-show .item-list img {
@@ -303,7 +304,8 @@
         let arrowNext = $('#arrowNext');
         let carouselList = $('#carouselList');
         let carouselCurrent = $('#carouselCurrent');
-        let listLength = $('#carouselList li').length; //轮播总数
+        let carouselListItems = $('#carouselList li');
+        let listLength = carouselListItems.length; //轮播总数
         let showLength = 5;
         let stepWidth = 122;
         let fixCurPonit = (showLength - 1) * stepWidth; //488
@@ -312,32 +314,72 @@
 
         carouselList.css('width', (listLength + 1) * 112 + 'px');
 
-        $('#carouselShowList li').eq(index).css({
-            display: 'block'
+        showCurrentCarousel(index);
+
+        function showCurrentCarousel(index) {
+            $('#carouselShowList li').css({
+                display: 'none'
+            });
+            $('#carouselShowList li').eq(index).css({
+                display: 'block'
+            });
+        }
+
+        carouselListItems.each(function (index) {
+            $(this).click(function () {
+                let newLeft = parseInt($(this).offset().left) - stepWidth;
+                carouselCurrent.css('left', newLeft);
+                showCurrentCarousel(index);
+            })
         })
 
         arrowPrev.click(function () {
-            move(stepWidth);
+            movePrev();
         });
         arrowNext.click(function () {
-            move(-stepWidth);
+            moveNext();
         });
 
-        function move(offset) {
+        function movePrev() {
+            let picLeft = parseFloat(carouselList.css('left'));
+            let curLeft = parseFloat(carouselCurrent.css('left'));
+            if (curLeft > 0 && curLeft <= fixCurPonit) {
+                index--;
+                let newCurLeft = curLeft - stepWidth;
+                carouselCurrent.css('left', `${newCurLeft}px`);
+                //carouselCurrent.animate({ left: `${newCurLeft}px` }, 300);
+            } else if (picLeft === 0 && curLeft === 0) {
+                index = listLength - 1;
+                carouselCurrent.css('left', `${fixCurPonit}px`);
+                carouselList.css('left', `${pointPicWidth}px`);
+            } else {
+                index--;
+                let newPicLeft = picLeft + stepWidth;
+                carouselList.css('left', `${newPicLeft}px`);
+                //carouselList.animate({ left: `${newPicLeft}px` }, 300)
+            }
+            showCurrentCarousel(index);
+        }
+
+        function moveNext() {
             let picLeft = parseFloat(carouselList.css('left'));
             let curLeft = parseFloat(carouselCurrent.css('left'));
             if (picLeft < pointCurWidth && curLeft < fixCurPonit) {
-                let newCurLeft = curLeft - offset;
-                //carouselCurrent.css('left', `${newCurLeft}px`);
-                carouselCurrent.animate({ left: `${newCurLeft}px` }, 300);
+                index++;
+                let newCurLeft = curLeft + stepWidth;
+                carouselCurrent.css('left', `${newCurLeft}px`);
+                //carouselCurrent.animate({ left: `${newCurLeft}px` }, 300);
             } else if (picLeft === pointPicWidth && curLeft === fixCurPonit) {
+                index = 0;
                 carouselCurrent.css('left', '0');
                 carouselList.css('left', '0');
             } else {
-                let newPicLeft = picLeft + offset;
-                //carouselList.css('left', `${newPicLeft}px`);
-                carouselList.animate({ left: `${newPicLeft}px` }, 300)
+                index++;
+                let newPicLeft = picLeft - stepWidth;
+                carouselList.css('left', `${newPicLeft}px`);
+                //carouselList.animate({ left: `${newPicLeft}px` }, 300)
             }
+            showCurrentCarousel(index);
         }
     })
 </script>
