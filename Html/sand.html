@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沙盘图</title>
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+<style>
+    .sand-container {
+        min-height: 120px;
+        padding: 20px;
+    }
+
+    .sand-content {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+        cursor: move;
+        border: 1px solid #ddd;
+    }
+
+    .sand-content .sand-picture {
+        position: relative;
+        width: 900px;
+        height: 600px;
+    }
+    /*todo:使用公共定位方法*/
+    .sand-picture .sand-icon-5 {
+        position: absolute;
+        top: 195px;
+        left: 512px;
+        cursor: pointer;
+        z-index: 102;
+    }
+
+    .sand-picture .sand-icon-5 a {
+        font-size: 12px;
+        padding: 6px 8px;
+        border-radius: 2px;
+        color: #fff;
+        background-color: #409DFB;
+    }
+
+    .sand-picture .sand-icon-5:hover a {
+        background-color: #ff3333;
+    }
+
+    .sand-picture .sand-icon-5:hover a i {
+        border-color: #ff3333 transparent transparent;
+    }
+
+    .sand-picture .sand-icon-5 a i {
+        position: absolute;
+        top: 24px;
+        left: 10px;
+        display: block;
+        border-style: solid;
+        border-width: 6px 6px 0;
+        border-color: #409DFB transparent transparent;
+    }
+
+    /*6*/
+    .sand-picture .sand-icon-6 {
+        position: absolute;
+        top: 210px;
+        left: 410px;
+        cursor: pointer;
+        z-index: 102;
+    }
+
+    .sand-picture .sand-icon-6 a {
+        font-size: 12px;
+        padding: 6px 8px;
+        border-radius: 2px;
+        color: #fff;
+        background-color: #FF9832;
+    }
+
+    .sand-picture .sand-icon-6:hover a {
+        background-color: #ff3333;
+    }
+
+    .sand-picture .sand-icon-6:hover a i {
+        border-color: #ff3333 transparent transparent;
+    }
+
+    .sand-picture .sand-icon-6 a i {
+        position: absolute;
+        top: 24px;
+        left: 10px;
+        display: block;
+        border-style: solid;
+        border-width: 6px 6px 0;
+        border-color: #FF9832 transparent transparent;
+    }
+</style>
+
+<body>
+    <div class="box-wrap">
+        <!--沙盘图 begin-->
+        <div class="box-sand">
+            <div class="sand-container clearfix">
+                <div class="sand-content fl" id="sandContent">
+                    <div class="sand-picture" id="sandPicture">
+                        <img src="../images/sand_900x600c.jpg" alt="">
+                        <div class="sand-icon-5">
+                            <a href="">
+                                <span>5#</span>
+                                <i></i>
+                            </a>
+                        </div>
+                        <div class="sand-icon-6">
+                            <a href="">
+                                <span>6#</span>
+                                <i></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sand-info fr"></div>
+            </div>
+        </div>
+        <!--沙盘图 end-->
+    </div>
+</body>
+<script type="text/javascript" src="../JavaScript/jquery.min.js"></script>
+<script type="text/javascript" src="../JavaScript/common.js"></script>
+<script>
+    $(document).ready(function () {
+        /*沙盘图*/
+        let child = $('#sandPicture');
+        justifyPicture(child);
+        dragPicture(child);
+    });
+</script>
+
+</html>
