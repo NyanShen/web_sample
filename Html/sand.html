@@ -79,7 +79,6 @@
     .sand-picture .sand-icon {
         position: absolute;
         cursor: pointer;
-        z-index: 102;
     }
 
     .sand-picture .sand-icon a {
@@ -147,6 +146,38 @@
         top: 210px;
         left: 410px;
     }
+
+    .sand-memo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 600px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        color: #fff;
+    }
+    .sand-memo .memo-bg {
+        height: 30px;
+        opacity: .3;
+        background-color: #000;
+    }
+
+    .sand-memo span {
+        position: absolute;
+        bottom: 0;
+    }
+    .sand-memo span.memo-text {
+        left: 10px;
+    }
+    .sand-memo span.memo-hover {
+        display: none;
+        right: 10px;
+    }
+
+    .sand-content:hover .sand-memo span.memo-hover {
+        display: block;
+    }
 </style>
 
 <body>
@@ -191,6 +222,11 @@
                                 <i></i>
                             </a>
                         </div>
+                    </div>
+                    <div class="sand-memo">
+                        <div class="memo-bg"></div>
+                        <span class="memo-text">楼栋效果图</span>
+                        <span class="memo-hover">拖动图片可以查看其它楼栋信息</span>
                     </div>
                 </div>
                 <div class="sand-info fr"></div>
