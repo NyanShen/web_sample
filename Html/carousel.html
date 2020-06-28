@@ -242,7 +242,7 @@
         </div>
         <div class="carousel-wrap">
             <div class="current" id="carouselCurrent"></div>
-            <div class="carousel-container">
+            <div class="carousel-container" id="carouselContainer">
                 <ul class="carousel-list" id="carouselList">
                     <li>
                         <p><a href="javascript:;">图1</a></p>
@@ -329,11 +329,13 @@
 
         carouselListItems.each(function (index) {
             $(this).click(function () {
-                let newLeft = parseInt($(this).offset().left) - stepWidth;
+                let itemOffset = parseInt($(this).offset().left);
+                let wrapOffset = parseInt($('#carouselContainer').offset().left);
+                let newLeft = itemOffset - wrapOffset;
                 carouselCurrent.css('left', newLeft);
                 showCurrentCarousel(index);
-            })
-        })
+            });
+        });
 
         arrowPrev.click(function () {
             if (isMoveOver) {
